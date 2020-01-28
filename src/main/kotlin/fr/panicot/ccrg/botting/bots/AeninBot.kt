@@ -12,7 +12,9 @@ import java.util.*
 class AeninBot(messageController: MessageController, random: Random) : EasyBot(messageController, random) {
 
     private val BOT_NAME = "AeninBot"
+    private val BOT_NAME_SPECIAL = "AeiouBot"
     val javouList = Arrays.asList("OUAIS JAVOU", "JAVOU")
+    val javeiouList = Arrays.asList("JAVEIOU", "javeiou")
     val hahaList = Arrays.asList("haha", "haha nice", "^^ nice")
 
     override fun executeOnNewMessage(message: Message) {
@@ -22,8 +24,13 @@ class AeninBot(messageController: MessageController, random: Random) : EasyBot(m
         }
         else if (message.content.contains("<a target") && willAct(10)) {
             messageController.sendMessage(BOT_NAME, getRandomHaha())
-        } else if (willAct(50)) {
-            messageController.sendMessage(BOT_NAME, getRandomJavou())
+        } else { 
+            if (willAct(50)) {
+                messageController.sendMessage(BOT_NAME, getRandomJavou())
+            }
+            if (willAct(200)) {
+                messageController.sendMessage(BOT_NAME_SPECIAL, getRandomJaveiou())
+            }
         }
     }
 
@@ -33,6 +40,10 @@ class AeninBot(messageController: MessageController, random: Random) : EasyBot(m
 
     private fun getRandomJavou() : String {
         return javouList[random.nextInt(javouList.size)]
+    }
+
+    private fun getRandomJavou() : String {
+        return javeiouList[random.nextInt(javeiouList.size)]
     }
 
     private fun getRandomHaha() : String {
