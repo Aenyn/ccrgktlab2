@@ -42,7 +42,7 @@ class AeninBot(messageController: MessageController, random: Random) : EasyBot(m
         return javouList[random.nextInt(javouList.size)]
     }
 
-    private fun getRandomJavou() : String {
+    private fun getRandomJaveiou() : String {
         return javeiouList[random.nextInt(javeiouList.size)]
     }
 
