@@ -20,7 +20,7 @@ open class BotConfig {
     @Bean
     open fun startBots(): Boolean {
         val random = Random(System.nanoTime())
-        val botList: List<Bot> = Arrays.asList(AttilaBot(messageController!!, random), ClausseBot(messageController!!, random), AeninBot(messageController!!, random))
+        val botList: List<Bot> = Arrays.asList(AttilaBot(messageController!!, random), ClausseBot(messageController!!, random), AeninBot(messageController!!, random), BobBot(messageController!!, random))
         botList.forEach(Bot::start)
         return true
     }
