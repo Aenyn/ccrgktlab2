@@ -25,7 +25,7 @@ class EchoBot(messageController: MessageController, random: Random): EasyBot(mes
             Thread.sleep(2500L )
             messageController.sendMessage(currentName, subs(message.content.toLowerCase(), 13) + "...")
             Thread.sleep(2500L )
-            messageController.sendMessage(currentName, subs(message.content, 7) + "...")
+            messageController.sendMessage(currentName, subs(message.content.toLowerCase(), 7) + "...")
             Thread.sleep(2500L )
             messageController.announceArrival(currentName, false)
         }
