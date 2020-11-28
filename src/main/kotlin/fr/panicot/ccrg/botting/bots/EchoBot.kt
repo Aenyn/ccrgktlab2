@@ -12,12 +12,14 @@ class EchoBot(messageController: MessageController, random: Random): EasyBot(mes
     var lastMessage: LocalDateTime? = null
 
     override fun executeOnNewMessage(message: Message) {
-        if (lastMessage == null || message.author.endsWith("Bot")) return
+        if (message.author.endsWith("Bot")) return
 
         val now = LocalDateTime.now()
 
         // don't spam links
-        if (now.minusHours(3).isAfter(lastMessage) && !message.content.contains("<a target")) {
+        if (lastMessage !== null &&
+                now.minusHours(3).isAfter(lastMessage) &&
+                !message.content.contains("<a target")) {
             Thread.sleep(500L )
             messageController.announceArrival(currentName, true)
             Thread.sleep(2000L )
