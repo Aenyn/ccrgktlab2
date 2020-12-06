@@ -4,6 +4,7 @@ import fr.panicot.ccrg.botting.EasyBot
 import fr.panicot.ccrg.botting.util.SchedulableTask
 import fr.panicot.ccrg.core.messaging.Message
 import fr.panicot.ccrg.core.messaging.MessageController
+import fr.panicot.ccrg.core.messaging.SYSTEM_ANNOUNCEMENT
 import java.time.LocalDateTime
 import java.util.*
 
@@ -12,7 +13,7 @@ class EchoBot(messageController: MessageController, random: Random): EasyBot(mes
     var lastMessage: LocalDateTime? = null
 
     override fun executeOnNewMessage(message: Message) {
-        if (message.author.endsWith("Bot")) return
+        if (message.author == SYSTEM_ANNOUNCEMENT || message.author.endsWith("Bot")) return
 
         val now = LocalDateTime.now()
 
