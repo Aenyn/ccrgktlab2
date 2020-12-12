@@ -12,12 +12,13 @@ import java.util.concurrent.TimeUnit
 import java.util.concurrent.atomic.AtomicLong
 import javax.servlet.http.HttpServletRequest
 
+const val SYSTEM_ANNOUNCEMENT = "System announcement"
+
 /**
  * Created by William on 11/02/2017.
  */
 @RestController
 class MessageController {
-    private val SYSTEM_ANNOUNCEMENT = "System announcement"
     private val counter = AtomicLong()
     private val messages = ArrayList<Message>()
     private val users = HashMap<String, User>()
